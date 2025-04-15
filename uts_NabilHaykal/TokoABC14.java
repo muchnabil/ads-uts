@@ -6,21 +6,21 @@ import java.util.List;
 import java.util.Scanner;
 public class TokoABC14 {
     List<Barang14> daftarBarang = new ArrayList<>();
-    public void inputBarang(Scanner scanner) {
+    public void inputBarang(Scanner sc) {
         System.out.print("Input jumlah barang yang ingin dimasukkan : ");
-        int jumlahBarang = scanner.nextInt();
-        scanner.nextLine();
+        int jumlahBarang = sc.nextInt();
+        sc.nextLine();
         for (int i = 0; i < jumlahBarang; i++) {
             System.out.println("\nData barang ke -" + (i + 1));
             System.out.print("Kode barang: ");
-            String kode = scanner.nextLine();
+            String kode = sc.nextLine();
             System.out.print("Nama barang: ");
-            String nama = scanner.nextLine();
+            String nama = sc.nextLine();
             System.out.print("Stok awal: ");
-            int stok = scanner.nextInt();
+            int stok = sc.nextInt();
             System.out.print("Harga satuan: ");
-            int harga = scanner.nextInt();
-            scanner.nextLine();
+            int harga = sc.nextInt();
+            sc.nextLine();
             Barang14 barang = new Barang14(kode, nama, stok, harga);
             daftarBarang.add(barang);
         }
@@ -33,11 +33,11 @@ public class TokoABC14 {
         }
         return null;
     }
-    public void prosesPenjualan(Scanner scanner) {
+    public void prosesPenjualan(Scanner sc) {
         List<Penjualan14> daftarPenjualan = new ArrayList<>();
         while (true) {
             System.out.print("\nMasukkan kode barang yang ingin dibeli (ketik 'selesai' untuk mengakhiri) : ");
-            String kode = scanner.nextLine();
+            String kode = sc.nextLine();
             if (kode.equalsIgnoreCase("selesai")) break;
             Barang14 barangDibeli = cariBarang(kode);
             if (barangDibeli == null) {
@@ -45,8 +45,8 @@ public class TokoABC14 {
                 continue;
             }
             System.out.print("Jumlah yang ingin dibeli : ");
-            int jumlahBeli = scanner.nextInt();
-            scanner.nextLine();
+            int jumlahBeli = sc.nextInt();
+            sc.nextLine();
             if (jumlahBeli > barangDibeli.stok) {
                 System.out.println("Maaf, stok tidak mencukupi.");
             } else {

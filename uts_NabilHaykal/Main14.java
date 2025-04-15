@@ -2,7 +2,7 @@ package uts_NabilHaykal;
 import java.util.Scanner;
 public class Main14 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         TokoABC14 toko = new TokoABC14();
         int pilihan;
         do {
@@ -14,20 +14,20 @@ public class Main14 {
             System.out.println("5. Tampilkan Semua Data Barang");
             System.out.println("0. Keluar");
             System.out.print("Silakan pilih menu : ");
-            while (!scanner.hasNextInt()) {
+            while (!sc.hasNextInt()) {
                 System.out.println("Input tidak valid. Masukkan angka!");
-                scanner.next();
+                sc.next();
                 System.out.print("Silakan pilih menu : ");
             }
-            pilihan = scanner.nextInt();
-            scanner.nextLine();
+            pilihan = sc.nextInt();
+            sc.nextLine();
             System.out.println();
             switch (pilihan) {
                 case 1:
-                    toko.inputBarang(scanner);
+                    toko.inputBarang(sc);
                     break;
                 case 2:
-                    toko.prosesPenjualan(scanner);
+                    toko.prosesPenjualan(sc);
                     break;
                 case 3:
                     toko.urutkanBerdasarkanStokTerbanyak();
